@@ -2,6 +2,8 @@ package me.pafias.pffa.objects;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import me.pafias.pffa.events.FFASpawnEvent;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -28,6 +30,7 @@ public class Spawn {
 
     public void teleport(Player player) {
         player.teleport(location);
+        Bukkit.getPluginManager().callEvent(new FFASpawnEvent(player, this));
     }
 
     /**

@@ -85,9 +85,9 @@ public class SpawnMenu extends GuiMenu {
             return;
         }
         user.heal(false);
-        spawn.teleport(user.getPlayer());
         if (kit != null)
             kit.give(user.getPlayer());
+        spawn.teleport(user.getPlayer());
         user.setLastSpawn(spawn);
         user.setLastKit(kit);
         Tasks.runLaterSync(1, () -> player.closeInventory());
